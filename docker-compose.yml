@@ -1,0 +1,12 @@
+version: '3'
+services:
+  master:
+    build: ./master/.
+    ports:
+     - "8080:8080"
+     - "50000:50000"
+    links: 
+     - dind:docker
+  dind:
+    image: "docker:1.13-dind"
+    privileged: true

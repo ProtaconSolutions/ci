@@ -1,2 +1,1 @@
-TODO:
-* Configure ldap configuration for protacon!
+# Container based CI
