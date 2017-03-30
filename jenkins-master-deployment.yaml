@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: master
-        image: localhost:5000/jenkins/jenkinstest:1.22
+        image: eu.gcr.io/ptcs-docker-registry/jenkinsci/jenkins:1.00
         ports:
         - containerPort: 8080
         - containerPort: 50000

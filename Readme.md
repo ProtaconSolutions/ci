@@ -1,6 +1,24 @@
 # Container based CI
 
-## Setup
+## Setup for minikube
+Once you have minikube running, start your services for slaves and to get into Jenkins UI:
 ```sh
-In progress..
+kubectl create -f jenkins-ui-service.yaml
+kubectl create -f jenkins-slaves-service.yaml
+```
+This is for having your plugins in Kubernetes configmap and Jenkins installs plugins from:
+```sh
+kubectl create -f plugins-txt.yaml
+```
+This is for having your config.xml in Kubernetes configmap which will configure your Jenkins to have Kubernetes cloud ready to use (must symlink first from /var/jenkins_home/configs/config.xml to /var/jenkins_home/config.xml and then reload configuration):
+```sh
+kubectl create -f config-xml.yaml
+```
+This is for having your credentias.xml in Kubernetes configmap which will give credentials to your Jenkins Kubernetes cloud (must symlink first from /var/jenkins_home/credentials/credentials.xml to /var/jenkins_home/credentials.xml and then reload configuration):
+```sh
+kubectl create -f credentials-xml.yaml
+```
+This will create Jenkins deployment and pod:
+```sh
+kubectl create -f jenkins-master-deployment.yaml
 ```
