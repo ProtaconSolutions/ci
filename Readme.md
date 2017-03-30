@@ -2,7 +2,5 @@
 
 ## Setup
 ```sh
-docker-compose up
+In progress..
 ```
-
-Navigate to `http://localhost:8080`.
