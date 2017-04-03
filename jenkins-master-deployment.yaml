@@ -25,7 +25,12 @@ spec:
           mountPath: /var/jenkins_home/credentials
         - name: pluginit
           mountPath: /var/jenkins_home/pluginit
+        - name: jenkins-volume
+          mountPath: /var/jenkins_home
       volumes:
+      - name: jenkins-volume
+        hostPath: 
+          path: /data/jenkins-data
       - name: docker-socket
         hostPath: 
           path: /var/run/docker.sock
