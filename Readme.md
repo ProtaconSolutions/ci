@@ -3,8 +3,9 @@
 ## Setup for Minikube
 Once you have minikube running, start your services for slaves and to get into Jenkins UI:
 ```sh
+kubectl create namespace jenkins
 kubectl create -f jenkins-ui-service.yaml
-kubectl create -f jenkins-slaves-service.yaml
+kubectl create -f jenkins-slaves-service.yaml*
 ```
 This is for having your plugins in Kubernetes configmap and Jenkins installs plugins from:
 ```sh
