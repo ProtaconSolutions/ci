@@ -18,7 +18,7 @@ Once you have minikube running, create namespace Jenkins, start your services fo
 ```sh
 kubectl create namespace jenkins
 kubectl create -f jenkins-ui-service.yaml
-kubectl create -f jenkins-slaves-service.yaml*
+kubectl create -f jenkins-slaves-service.yaml
 ```
 This is for having your Jenkins plugins in Kubernetes configmap and Jenkins installs plugins from:
 ```sh
@@ -46,4 +46,4 @@ Then navigate to Jenkins with Minikube IP-address and input your own NodePort fr
 ```sh
 192.168.99.100:32375
 ```
-Default username is jenkins and password is salainen2017!. You can change these later in Jenkins or customize your own Dockerfile.
+Default username is 'jenkins' and password is 'salainen2017!'. You can change these later in Jenkins or customize your own Dockerfile.
