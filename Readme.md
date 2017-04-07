@@ -5,6 +5,7 @@ Use Dockerfile to make your image for deployment.
 ## Minikube Quick Setup
 If you know what you are doing, copy all this and it should be running:
 ```sh
+kubectl create namespace jenkins
 kubectl create -f jenkins-ui-service.yaml
 kubectl create -f jenkins-slaves-service.yaml
 kubectl create -f plugins-txt.yaml
@@ -13,7 +14,7 @@ kubectl create -f jenkins-master-deployment.yaml
 ```
 
 ## Setup for Minikube
-Once you have minikube running, start your services for slaves and to get into Jenkins UI:
+Once you have minikube running, create namespace Jenkins, start your services for slaves and to get into Jenkins UI:
 ```sh
 kubectl create namespace jenkins
 kubectl create -f jenkins-ui-service.yaml
