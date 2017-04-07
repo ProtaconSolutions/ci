@@ -11,6 +11,7 @@ kubectl create -f jenkins-slaves-service.yaml
 kubectl create -f plugins-txt.yaml
 kubectl create -f jenkins-persistent-volume.yaml
 kubectl create -f jenkins-master-deployment.yaml
+minikube ssh "sudo chmod 777 /var/run/docker.sock"
 ```
 
 ## Setup for Minikube
@@ -47,3 +48,7 @@ Then navigate to Jenkins with Minikube IP-address and input your own NodePort fr
 192.168.99.100:32375
 ```
 Default username is 'jenkins' and password is 'salainen2017!'. You can change these later in Jenkins or customize your own Dockerfile.
+Give access to docker.socket so you can run Docker in your Jenkins and slaves (used only for testing purposes).
+```sh
+minikube ssh "sudo chmod 777 /var/run/docker.sock"
+```
