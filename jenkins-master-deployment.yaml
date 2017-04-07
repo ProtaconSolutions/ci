@@ -19,10 +19,6 @@ spec:
         volumeMounts: 
         - name: docker-socket
           mountPath: /var/run/docker.sock
-        - name: configgi
-          mountPath: /var/jenkins_home/configs
-        - name: credentiaalit
-          mountPath: /var/jenkins_home/credentials
         - name: pluginit
           mountPath: /var/jenkins_home/pluginit
         - name: jenkins-volume
@@ -34,12 +30,6 @@ spec:
       - name: docker-socket
         hostPath: 
           path: /var/run/docker.sock
-      - name: configgi
-        configMap: 
-          name: config-xml
-      - name: credentiaalit
-        configMap: 
-          name: credentials-xml
       - name: pluginit
         configMap: 
           name: plugins-txt

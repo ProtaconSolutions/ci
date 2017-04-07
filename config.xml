@@ -21,21 +21,37 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@0.10">
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@0.11">
       <name>minikube</name>
+      <defaultsProviderTemplate></defaultsProviderTemplate>
       <templates>
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
           <inheritFrom></inheritFrom>
-          <name>jnlp</name>
+          <name>jnlp-docker</name>
+          <privileged>false</privileged>
+          <alwaysPullImage>false</alwaysPullImage>
           <instanceCap>2147483647</instanceCap>
           <idleMinutes>0</idleMinutes>
-          <label>jnlp</label>
+          <label>jnlp-docker</label>
           <nodeSelector></nodeSelector>
-          <volumes/>
+          <customWorkspaceVolumeEnabled>false</customWorkspaceVolumeEnabled>
+          <workspaceVolume class="org.csanchez.jenkins.plugins.kubernetes.volumes.workspace.EmptyDirWorkspaceVolume">
+            <memory>false</memory>
+          </workspaceVolume>
+          <volumes>
+            <org.csanchez.jenkins.plugins.kubernetes.volumes.HostPathVolume>
+              <mountPath>/var/run/docker.sock</mountPath>
+              <hostPath>/var/run/docker.sock</hostPath>
+            </org.csanchez.jenkins.plugins.kubernetes.volumes.HostPathVolume>
+            <org.csanchez.jenkins.plugins.kubernetes.volumes.HostPathVolume>
+              <mountPath>/usr/bin/docker</mountPath>
+              <hostPath>/usr/bin/docker</hostPath>
+            </org.csanchez.jenkins.plugins.kubernetes.volumes.HostPathVolume>
+          </volumes>
           <containers>
             <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
               <name>jnlp</name>
-              <image>jenkinsci/jnlp-slave</image>
+              <image>localhost:5000/jenkinsci/jnlp-docker:2</image>
               <privileged>false</privileged>
               <alwaysPullImage>false</alwaysPullImage>
               <workingDir>/home/jenkins</workingDir>
@@ -52,7 +68,6 @@
           <envVars/>
           <annotations/>
           <imagePullSecrets/>
-          <nodeProperties/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       </templates>
       <serverUrl>https://kubernetes.default</serverUrl>

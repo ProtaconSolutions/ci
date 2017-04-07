@@ -5,10 +5,10 @@ RUN mkdir -p /usr/share/jenkins/ref/secrets/ && echo "false" > /usr/share/jenkin
 
 USER root
 
-# Docker binaries
+# Docker binaries for Docker-outside-of-Docker
 RUN apt-get update && apt-get install -y docker.io && usermod -aG docker jenkins
 
-# Default jenkins user
+# Default jenkins user with password to get access to UI
 COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 
 # Disable Jenkins install wizard
