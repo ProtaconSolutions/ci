@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: master
-        image: docker.io/ptcos/jenkins-ci-master:0.0.1
+        image: docker.io/ptcos/ci-jenkins-master:latest
         ports:
         - containerPort: 8080
         - containerPort: 50000
