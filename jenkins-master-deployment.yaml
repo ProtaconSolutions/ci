@@ -21,8 +21,6 @@ spec:
           mountPath: /var/run/docker.sock
         - name: pluginit
           mountPath: /var/jenkins_home/pluginit
-        - name: jenkins-volume
-          mountPath: /var/jenkins_home
       volumes:
       - name: jenkins-volume
         hostPath: 
