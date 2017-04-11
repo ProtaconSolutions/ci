@@ -1,7 +1,9 @@
 # Container based CI
 This is a setup to get Jenkins running in your Minikube with a bunch of plugins including Kubernetes Plugin to deploy slaves.
 Config.xml and credentials.xml have preconfigured settings which you can set by getting into the container, copying settings and reloading Jenkins.
-Use Dockerfile to make your image for deployment. 
+
+This setup requires Kubernetes environment either locally (minikube) or kubernetes cloud. You can test setup with [Minikube](https://github.com/kubernetes/minikube).
+
 ## Minikube Quick Setup
 If you know what you are doing, copy all this and it should be running:
 ```sh
