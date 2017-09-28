@@ -12,24 +12,14 @@ spec:
     spec:
       containers:
       - name: master
-        image: docker.io/ptcos/ci-jenkins-master:latest
+        image: jenkins/jenkins:2.60.3
         ports:
         - containerPort: 8080
         - containerPort: 50000
         volumeMounts: 
-        - name: docker-socket
-          mountPath: /var/run/docker.sock
-        - name: pluginit
-          mountPath: /var/jenkins_home/pluginit
         - name: jenkins-volume
           mountPath: /var/jenkins_home
       volumes:
       - name: jenkins-volume
         hostPath: 
           path: /data/jenkins-data
-      - name: docker-socket
-        hostPath: 
-          path: /var/run/docker.sock
-      - name: pluginit
-        configMap: 
-          name: plugins-txt
