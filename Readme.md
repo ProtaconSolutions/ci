@@ -65,7 +65,7 @@ kubectl logs jenkins-something-unique -n jenkins
 
 ## Jenkins setup for Kubernetes
 - Install Kubernetes Plugin and go to "Manage Jenkins -> Configure System".
-- \#\ of executors should be 0 when using Kubernetes slaves.
+- \# of executors should be 0 when using Kubernetes slaves.
 - Add new cloud of type: Kubernetes
 - Name: kubernetes
 - Kubernetes URL: https://kubernetes.default.svc.cluster.local
