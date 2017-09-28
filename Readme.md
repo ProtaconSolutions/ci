@@ -84,3 +84,22 @@ Then apply it:
 kubectl -n jenkins apply -f jenkins-master-deployment.yaml
 ```
 Newer version should be up running in couple of minutes.
+
+## Pipeline example
+Below is an example, how to use Kubernetes slaves in pipeline.
+```sh
+podTemplate(label: 'somepod', 
+	containers: [
+		containerTemplate(name: 'docker', image: 'ptcos/ci-jenkins-slave:test-1.00', alwaysPullImage: true, ttyEnabled: true, command: '/bin/sh -c', args: 'cat')
+	], volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
+) {
+    node('somepod') {
+		container('docker') {
+		sh """
+		docker version
+		docker images
+		"""
+		}
+	}
+}
+```
