@@ -60,7 +60,7 @@ kubectl get pods -n jenkins
 ```
 Use whole Jenkins podname to access logs and find the password from output:
 ```sh
-kubectl logs jenkins-something-unique -n jenkins
+kubectl logs jenkins-XXXXXXXXXX-XXXXX -n jenkins
 ```
 
 ## Jenkins setup for Kubernetes
