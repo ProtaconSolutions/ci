@@ -1,4 +1,4 @@
-# Container based CI
+# Container based Jenkins CI
 This is a setup to get Jenkins running in your Minikube with a bunch of plugins including Kubernetes Plugin to deploy slaves.
 
 ## Minikube Quick Setup
